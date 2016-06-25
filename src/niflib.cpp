@@ -34,6 +34,8 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../include/obj/bhkConstraint.h"
 #include "../include/gen/Header.h"
 #include "../include/gen/Footer.h"
+#include "../include/Hashmi/config.h"
+#include "../include/Hashmi/util.h"
 
 namespace Niflib {
 
@@ -68,6 +70,13 @@ NiObjectRef ReadNifTree( istream & in, list<NiObjectRef> & missing_link_stack, N
 NiObjectRef ReadNifTree( string const & file_name, NifInfo * info ) {
 	//Read object list
 	vector<NiObjectRef> objects = ReadNifList( file_name, info );
+
+	if (Options::use_header)
+	{
+		Options::strings_dict = ReadHeader(file_name).strings;
+		
+	}
+
 	return FindRoot( objects );
 }
 
@@ -515,6 +524,14 @@ void WriteNifTree( ostream & out, list<NiObjectRef> const & roots, list<NiObject
 		header.maxStringLength = 0;
 		header.numStrings = 0;
 		header.strings.clear();
+
+		if (Options::use_header)
+		{
+			header.strings = Options::strings_dict;
+			header.numStrings = header.strings.size();
+			header.maxStringLength = String_Util::get_max_len(header.strings);		
+
+		}
 
 		NifSizeStream ostr;
 		ostr << hdrInfo(&header);

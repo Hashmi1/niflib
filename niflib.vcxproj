@@ -851,6 +851,7 @@
     <ClCompile Include="TriStripper\tri_stripper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\config.h" />
     <ClInclude Include="include\gen\bhkCMSDBigTris.h" />
     <ClInclude Include="include\gen\BoneLOD.h" />
     <ClInclude Include="include\gen\BSSegment.h" />
@@ -1389,6 +1390,7 @@
     <ClInclude Include="include\gen\TexSource.h" />
     <ClInclude Include="include\gen\UnionBV.h" />
     <ClInclude Include="include\gen\UnknownMatrix1.h" />
+    <ClInclude Include="include\util.h" />
     <ClInclude Include="TriStripper\public_types.h" />
     <ClInclude Include="TriStripper\tri_stripper.h" />
     <ClInclude Include="TriStripper\detail\cache_simulator.h" />

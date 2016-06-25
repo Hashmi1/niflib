@@ -734,11 +734,14 @@ static void FromIndexString(IndexString const &value, Header* header, unsigned i
 				break;
 		}
 		if (i >= header->numStrings)
+		{
 			header->numStrings = i;
+			header->strings.push_back(value); // Add string if it doesn't exist
+		}
 		size_t len = value.length();
 		if (header->maxStringLength < len)
 			header->maxStringLength = len;
-		header->strings.push_back(value);
+		//header->strings.push_back(value); // Don't add string if it already exists
 		idx = i;
 	}
 }

@@ -216,7 +216,7 @@ void NiSkinInstance::FixLinks( const map<unsigned int,NiObjectRef> & objects, li
 	//Ensure that bones have the flag set properly
 	for ( unsigned int i = 0; i < bones.size(); ++i ) {
 		if ( bones[i] != NULL ) {
-			bones[i]->SetSkinFlag(true);
+			//bones[i]->SetSkinFlag(true); // For Skyrim Creature Skins. Correct flags
 		}
 	}
 

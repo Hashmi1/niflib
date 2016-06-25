@@ -722,7 +722,17 @@ unsigned short NiGeometryData::numUvSetsCalc(const NifInfo & info) const {
 }
 
 unsigned short NiGeometryData::bsNumUvSetsCalc(const NifInfo & info) const {
-  return (numUvSets & (~1))  | (unsigned short)(uvSets.size() & 1);
+  
+	unsigned short flg = (numUvSets & (~1))  | (unsigned short)(uvSets.size() & 1);
+
+	// For Skyrim Creature Skeletons
+	// Turns on Has_Tangents flag
+	if (info.version == 335675399 && info.userVersion == 12 && info.userVersion2 == 83)
+	{		
+		flg = (flg | 4096);	
+	}
+
+  return flg;
 }
 
 //--END CUSTOM CODE--//

@@ -41,7 +41,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
     </Filter>
     <Filter Include="Header Files\Hashmi">
-      <UniqueIdentifier>{34f25ba6-2bdf-4e3c-a75c-1906afc16566}</UniqueIdentifier>
+      <UniqueIdentifier>{718b9ba9-3c58-4399-9c5b-bc426fdfec28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -3314,10 +3314,10 @@
     <ClInclude Include="include\gen\bhkCMSDBigTris.h">
       <Filter>Header Files\gen</Filter>
     </ClInclude>
-    <ClInclude Include="include\config.h">
+    <ClInclude Include="include\Hashmi\config.h">
       <Filter>Header Files\Hashmi</Filter>
     </ClInclude>
-    <ClInclude Include="include\util.h">
+    <ClInclude Include="include\Hashmi\util.h">
       <Filter>Header Files\Hashmi</Filter>
     </ClInclude>
   </ItemGroup>

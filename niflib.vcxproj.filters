@@ -3320,5 +3320,14 @@
     <ClInclude Include="include\Hashmi\util.h">
       <Filter>Header Files\Hashmi</Filter>
     </ClInclude>
+    <ClInclude Include="include\Hashmi\SkinConverter.h">
+      <Filter>Header Files\Hashmi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Hashmi\includes.h">
+      <Filter>Header Files\Hashmi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Hashmi\NifFile.h">
+      <Filter>Header Files\Hashmi</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

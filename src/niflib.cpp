@@ -35,7 +35,7 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../include/gen/Header.h"
 #include "../include/gen/Footer.h"
 #include "../include/Hashmi/config.h"
-#include "../include/Hashmi/util.h"
+#include "../include/Hashmi/util.h" 
 
 namespace Niflib {
 
@@ -529,7 +529,7 @@ void WriteNifTree( ostream & out, list<NiObjectRef> const & roots, list<NiObject
 		{
 			header.strings = Options::strings_dict;
 			header.numStrings = header.strings.size();
-			header.maxStringLength = String_Util::get_max_len(header.strings);		
+			header.maxStringLength = Hashmi_Util::get_max_len(header.strings);		
 
 		}
 

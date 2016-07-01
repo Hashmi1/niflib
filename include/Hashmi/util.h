@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class String_Util
+class Hashmi_Util
 {
 public:
 	static unsigned int get_max_len(vector<string> list_strings)
@@ -28,6 +28,30 @@ public:
 
 		return max_len;
 		
+	}
+	static string replace(string text, string replace_this, string with_this)
+	{
+				
+		unsigned int pos = text.find(replace_this);
+		if (pos == -1)
+		{
+			return text;
+		}
+
+		string output = text.replace(pos,replace_this.length(),with_this);
+		return output;
+				
+	}
+	static float read_float(vector<unsigned char>& bin, unsigned int& pos)
+	{
+
+		float f;
+
+		unsigned char b[] = {bin[pos], bin[pos+1], bin[pos+2], bin[pos+3]};		
+		memcpy(&f, &b, 4);
+		pos += 4;
+
+		return f;
 	}
 };
 

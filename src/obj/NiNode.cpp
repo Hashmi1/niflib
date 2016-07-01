@@ -234,7 +234,7 @@ void NiNode::AddChild( Ref<NiAVObject> obj ) {
 	//must com first, so we enforce that by always adding NiTriBasedGeom to the
 	//begining of the child list.
 	NiTriBasedGeomRef niGeom = DynamicCast<NiTriBasedGeom>(obj);
-	if ( niGeom != NULL ) {
+	if ( niGeom != NULL && false == true) { // never runs. In Skyrim skins the geometry is at the end
 		//This is a NiTriBasedGeom, so shift all children to the right
 		size_t old_size = children.size();
 		children.resize( children.size() + 1 );

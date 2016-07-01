@@ -1,19 +1,21 @@
-#ifndef _CONFIG_H_
-#define _CONFIG_H_
+#ifndef _HCONFIG_H_
+#define _HCONFIG_H_
 
 
-# include <string>
+# include <iostream>
 # include <vector>
-
-
+# include <string>
 
 using namespace std;
 
+
 namespace Options
 {
-	bool use_header = true;
+	string skin_template_file = "D:\\Code\\bench\\chicken\\chicken.nif";
+	bool use_header = false;
 	vector<string> strings_dict;
-	
+
+		
 }
 
 #endif

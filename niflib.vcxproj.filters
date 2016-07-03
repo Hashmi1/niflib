@@ -3329,5 +3329,14 @@
     <ClInclude Include="include\Hashmi\NifFile.h">
       <Filter>Header Files\Hashmi</Filter>
     </ClInclude>
+    <ClInclude Include="include\Hashmi\SkeletonConverter.h">
+      <Filter>Header Files\Hashmi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Hashmi\NifConverter.h">
+      <Filter>Header Files\Hashmi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Hashmi\ErrorHandler.h">
+      <Filter>Header Files\Hashmi</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

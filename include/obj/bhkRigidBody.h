@@ -319,6 +319,10 @@ public:
 	//  is given then the density argument is ignored.
 	NIFLIB_API void UpdateMassProperties(float density = 1.0f, bool solid = true, float mass = 0.0f);
 
+	NIFLIB_API void set_unknowns()
+	{
+	}
+
 	//--END CUSTOM CODE--//
 protected:
 	/*! Unknown. Could be 2 shorts corresponding to Unknown 7 Shorts[1] and [2]. */

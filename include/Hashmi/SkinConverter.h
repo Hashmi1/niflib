@@ -1,56 +1,29 @@
 #ifndef _SKINCONVERTER_H_
 #define _SKINCONVERTER_H_
 
-//# include <Hashmi\config.h>
+
 # include <Hashmi\includes.h>
 # include <Hashmi\util.h>
-//# include <Hashmi\config.h>
 
 # include <obj/BSDismemberSkinInstance.h>
 #include <obj/NiSkinData.h>
 #include <obj/NiSkinPartition.h>
 # include <Ref.h>
-#include <istream>
-#include <streambuf>
+# include <map>
+#include <set>
+
+# include <Hashmi\NifConverter.h>
 
 namespace Hashmi
 {
-	class SkinConverter
+	class SkinConverter : NifConverter
 	{
 	
-		struct membuf : std::streambuf
-		{
-			membuf(char* begin, char* end) {
-				this->setg(begin, begin, end);
-			}
-		};
-
-	public:
+	private:
 		
-		static void rename_bone(NiNodeRef bone)
-		{
-			string old_name = bone->GetName();
-			string new_name = "";
-			bone->SetName(new_name);
-		}
+		
 
-		static void rename_bones(NiNodeRef root)
-		{
-			root->SetName(Hashmi_Util::replace(root->GetName(),"Bip01","NPC"));
-
-			vector< Ref<NiAVObject> > children = root->GetChildren();
-			for (unsigned int i =0; i < children.size(); i++)
-			{
-				Ref<NiObject> child = children[i];
-				NiNodeRef child_ninode = DynamicCast<NiNode>(child);
-				if (child_ninode != NULL)
-				{
-					rename_bones(child_ninode);
-				}
-			}
-		}
-
-		static void convert_geometry(NiTriStripsRef node)
+		void convert_geometry(NiTriStripsRef node)
 		{
 			
 			NiTriShapeRef shape = DynamicCast<NiTriShape>(NiTriShape::Create());
@@ -102,7 +75,7 @@ namespace Hashmi
 			
 			vector<BodyPartList > partitions;
 			BodyPartList part;
-			part.partFlag = BSPartFlag::PF_START_NET_BONESET;
+			part.partFlag = (BSPartFlag)(BSPartFlag::PF_START_NET_BONESET | BSPartFlag::PF_EDITOR_VISIBLE);
 			part.bodyPart = BSDismemberBodyPartType::SBP_32_BODY;
 
 			partitions.push_back(part);
@@ -124,7 +97,7 @@ namespace Hashmi
 			
 		}
 
-		static void convert_tangents(NiTriStripsRef node)
+		void convert_tangents(NiTriStripsRef node)
 		{
 			
 			NiBinaryExtraDataRef TSpaceRef;
@@ -183,7 +156,7 @@ namespace Hashmi
 			node->GetData()->SetBitangents(tangents);
 		}
 
-		static void convert_materials(NiTriStripsRef node)
+		void convert_materials(NiTriStripsRef node)
 		{
 			vector< Ref<NiProperty> > properties = node->GetProperties();
 			
@@ -241,20 +214,16 @@ namespace Hashmi
 
 		}
 				
-		static void print_children(NiNodeRef root)
-		{
-			vector< Ref<NiAVObject> >& children = root->GetChildren();
-			for (unsigned int i =0; i < children.size(); i++)
-			{
-				Ref<NiAVObject> child = children[i];
-				string name = child->GetName();
-				cout << name << endl;
+		
 
-			}
-		}
 
-		static void convert(NiNodeRef root)
+	public:
+
+		void convert(NiNodeRef root)
 		{
+			remove_unused_bones(root);
+			rename_bones(root);
+
 			vector< Ref<NiAVObject> >& children = root->GetChildren();
 			for (unsigned int i =0; i < children.size(); i++)
 			{
@@ -274,6 +243,58 @@ namespace Hashmi
 			
 		}
 		
+		void extract_bone_names(NiNodeRef node, vector<string>& names)
+		{
+			names.push_back(node->GetName());
+
+			vector< Ref<NiAVObject> > children = node->GetChildren();
+			for (unsigned int i = 0; i < children.size(); i++)
+			{
+				Ref<NiObject> child = children[i];
+				NiNodeRef child_ninode = DynamicCast<NiNode>(child);
+				if (child_ninode != NULL)
+				{
+					extract_bone_names(child_ninode,names);
+				}
+			}
+
+		}
+
+
+		void out_names(NiNodeRef root)
+		{		
+			/*
+			ofstream fout("D:\\Code\\bench\\dict.txt");
+
+			
+			map<string,string> dictionary;
+
+			dictionary["a"] = "b";
+
+			string loba = dictionary["cc"];
+
+			return;
+
+			vector<string> names;
+			extract_bone_names(root,names);
+			for (unsigned int i = 0; i < names.size(); i++)
+			{
+				string new_name = names[i];
+				string old_name = Hashmi_Util::replace(new_name,"NPC","Bip01");
+				
+				if (old_name.find(" [") != -1)
+				{
+					old_name = old_name.substr(0, old_name.find(" ["));
+					//old_name.
+				}
+				
+				cout << "dictionary[\"" << old_name << "\"] = \"" << new_name << "\";" << endl;
+				fout << "dictionary[\"" << old_name << "\"] = \"" << new_name << "\";" << endl;
+			}
+
+			fout.close();
+			*/
+		}
 
 
 	};

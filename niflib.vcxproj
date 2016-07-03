@@ -856,8 +856,11 @@
     <ClInclude Include="include\gen\BSSegment.h" />
     <ClInclude Include="include\gen\SkinPartitionUnknownItem1.h" />
     <ClInclude Include="include\Hashmi\config.h" />
+    <ClInclude Include="include\Hashmi\ErrorHandler.h" />
     <ClInclude Include="include\Hashmi\includes.h" />
+    <ClInclude Include="include\Hashmi\NifConverter.h" />
     <ClInclude Include="include\Hashmi\NifFile.h" />
+    <ClInclude Include="include\Hashmi\SkeletonConverter.h" />
     <ClInclude Include="include\Hashmi\SkinConverter.h" />
     <ClInclude Include="include\Hashmi\util.h" />
     <ClInclude Include="include\obj\BSMultiBoundData.h" />

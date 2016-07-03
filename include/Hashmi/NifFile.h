@@ -22,6 +22,18 @@ namespace Hashmi
 			
 		}
 
+		NifFile(NiNodeRef root)
+		{
+			root_ = root;			
+		}
+
+
+		static NiNodeRef open(string file_)
+		{
+			NifFile nif(file_);
+			return nif.root();
+		}
+
 		NiNodeRef root()
 		{
 			return root_;

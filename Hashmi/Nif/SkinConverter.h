@@ -2,8 +2,8 @@
 #define _SKINCONVERTER_H_
 
 
-# include <Hashmi\includes.h>
-# include <Hashmi\util.h>
+# include <includes.h>
+# include <Nif\util.h>
 
 # include <obj/BSDismemberSkinInstance.h>
 #include <obj/NiSkinData.h>
@@ -12,7 +12,7 @@
 # include <map>
 #include <set>
 
-# include <Hashmi\NifConverter.h>
+# include <Nif\NifConverter.h>
 
 namespace Hashmi
 {
@@ -36,8 +36,8 @@ namespace Hashmi
 			////////////////////////////////////////////////
 
 			NiTriShapeDataRef shape_data = DynamicCast<NiTriShapeData>(NiTriShapeData::Create());
-			NiTriStripsDataRef strip_data = DynamicCast<NiTriStripsData>(node->GetData());
-
+			NiTriStripsDataRef strip_data = DynamicCast<NiTriStripsData>(node->GetData()); null_check(strip_data,node->GetName() + " : has no TriStripData.");
+			
 			shape_data->SetVertices(strip_data->GetVertices());
 			shape_data->SetNormals(strip_data->GetNormals());
 						
@@ -112,16 +112,23 @@ namespace Hashmi
 					break;
 				}
 			}
-
-			vector<byte> bin_data = TSpaceRef->GetData();
-			//byte* bin_data = &bin_data_vectr[0];
 			
+			null_check(TSpaceRef,node->GetName() + " : No Tangent Space ExtraData was found");
+			
+			vector<byte> bin_data = TSpaceRef->GetData();
 
+			
 			vector<Vector3 > tangents;
 			vector<Vector3 > bitangents;
 			
 			unsigned int pos = 0;
 			int vtcount = node->GetData()->GetVertexCount();
+
+			if (bin_data.size() != vtcount*2)
+			{
+				error(node->GetName()+" : Tangent Space ExtraData is not correct size. Should be '2 * Num-Vertices' bytes ");
+			}
+			
 
 			for (int i = 0; i < vtcount; i++)
 			{
@@ -202,7 +209,7 @@ namespace Hashmi
 
 			if (! assigned_texture || !assigned_mat)
 			{
-				throw ("No Texture or Material found");
+				error(node->GetName() + ": No Texture or Material found.");
 			}
 						
 			// link texture to material
@@ -261,41 +268,7 @@ namespace Hashmi
 		}
 
 
-		void out_names(NiNodeRef root)
-		{		
-			/*
-			ofstream fout("D:\\Code\\bench\\dict.txt");
-
-			
-			map<string,string> dictionary;
-
-			dictionary["a"] = "b";
-
-			string loba = dictionary["cc"];
-
-			return;
-
-			vector<string> names;
-			extract_bone_names(root,names);
-			for (unsigned int i = 0; i < names.size(); i++)
-			{
-				string new_name = names[i];
-				string old_name = Hashmi_Util::replace(new_name,"NPC","Bip01");
-				
-				if (old_name.find(" [") != -1)
-				{
-					old_name = old_name.substr(0, old_name.find(" ["));
-					//old_name.
-				}
-				
-				cout << "dictionary[\"" << old_name << "\"] = \"" << new_name << "\";" << endl;
-				fout << "dictionary[\"" << old_name << "\"] = \"" << new_name << "\";" << endl;
-			}
-
-			fout.close();
-			*/
-		}
-
+	
 
 	};
 }

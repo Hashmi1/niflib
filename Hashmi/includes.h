@@ -37,6 +37,8 @@
 #include "obj/bhkShape.h"
 # include "obj/BSValueNode.h"
 
+# include <Nif\util.h>
+
 using namespace std;
 using namespace Niflib;
 

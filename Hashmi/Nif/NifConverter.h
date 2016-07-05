@@ -1,7 +1,7 @@
 #ifndef _NIFCONVERTER_H_
 #define _NIFCONVERTER_H_
 
-# include <Hashmi\includes.h>
+# include <includes.h>
 # include <map>
 
 namespace Hashmi
@@ -232,27 +232,26 @@ namespace Hashmi
 			
 		}
 
-		NiNodeRef find_node_OR_FAIL(NiNodeRef node, string name)
+		NiNodeRef find_node_OR_FAIL(NiNodeRef node, string name, string err_msg = "A Node was not found")
 		{
 			NiNodeRef required_node = find_node(node,name);
-			null_check(required_node);
-			/*
-			if (required_node == NULL)
-			{
-				throw "";
-			}
-			*/
-
+			null_check(required_node, name + " was not found.");
+			
 			return required_node;
 		}
 
+		void error(string message)
+		{
+			cout << message << endl;
+			throw -1;
+		}
+
 		template <typename T>
-		void null_check(T obj)
+		void null_check(T obj, string message = "A Dynamic Cast Failed")
 		{
 			if (obj == NULL)
 			{
-				cout << "A Dynamic Cast Failed" << endl;
-				throw -1;
+				error(message);				
 			}
 		}
 

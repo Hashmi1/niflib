@@ -40,8 +40,17 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
     </Filter>
-    <Filter Include="Header Files\Hashmi">
-      <UniqueIdentifier>{718b9ba9-3c58-4399-9c5b-bc426fdfec28}</UniqueIdentifier>
+    <Filter Include="Header Files\RapidXML">
+      <UniqueIdentifier>{bc5402ae-7786-4e9e-81ee-9af6a0faecdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hashmi">
+      <UniqueIdentifier>{ea02e4dd-066a-4d4f-b727-894aa4de702b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hashmi\Havok">
+      <UniqueIdentifier>{2d73a17d-46aa-4c4d-a113-6d8236fc34b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hashmi\Nif">
+      <UniqueIdentifier>{e6387818-fe2d-4968-9de5-7459f5368181}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -3314,29 +3323,53 @@
     <ClInclude Include="include\gen\bhkCMSDBigTris.h">
       <Filter>Header Files\gen</Filter>
     </ClInclude>
-    <ClInclude Include="include\Hashmi\config.h">
-      <Filter>Header Files\Hashmi</Filter>
+    <ClInclude Include="rapidxml-1.13\rapidxml.hpp">
+      <Filter>Header Files\RapidXML</Filter>
     </ClInclude>
-    <ClInclude Include="include\Hashmi\util.h">
-      <Filter>Header Files\Hashmi</Filter>
+    <ClInclude Include="rapidxml-1.13\rapidxml_iterators.hpp">
+      <Filter>Header Files\RapidXML</Filter>
     </ClInclude>
-    <ClInclude Include="include\Hashmi\SkinConverter.h">
-      <Filter>Header Files\Hashmi</Filter>
+    <ClInclude Include="rapidxml-1.13\rapidxml_print.hpp">
+      <Filter>Header Files\RapidXML</Filter>
     </ClInclude>
-    <ClInclude Include="include\Hashmi\includes.h">
-      <Filter>Header Files\Hashmi</Filter>
+    <ClInclude Include="rapidxml-1.13\rapidxml_utils.hpp">
+      <Filter>Header Files\RapidXML</Filter>
     </ClInclude>
-    <ClInclude Include="include\Hashmi\NifFile.h">
-      <Filter>Header Files\Hashmi</Filter>
+    <ClInclude Include="Hashmi\Nif\config.h">
+      <Filter>Hashmi\Nif</Filter>
     </ClInclude>
-    <ClInclude Include="include\Hashmi\SkeletonConverter.h">
-      <Filter>Header Files\Hashmi</Filter>
+    <ClInclude Include="Hashmi\Nif\NifConverter.h">
+      <Filter>Hashmi\Nif</Filter>
     </ClInclude>
-    <ClInclude Include="include\Hashmi\NifConverter.h">
-      <Filter>Header Files\Hashmi</Filter>
+    <ClInclude Include="Hashmi\Nif\NifFile.h">
+      <Filter>Hashmi\Nif</Filter>
     </ClInclude>
-    <ClInclude Include="include\Hashmi\ErrorHandler.h">
-      <Filter>Header Files\Hashmi</Filter>
+    <ClInclude Include="Hashmi\Nif\SkeletonConverter.h">
+      <Filter>Hashmi\Nif</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashmi\Nif\SkeletonHKX.h">
+      <Filter>Hashmi\Nif</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashmi\Nif\SkinConverter.h">
+      <Filter>Hashmi\Nif</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashmi\Nif\util.h">
+      <Filter>Hashmi\Nif</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashmi\Havok\hkaSkeleton.h">
+      <Filter>Hashmi\Havok</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashmi\Havok\hkobject.h">
+      <Filter>Hashmi\Havok</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashmi\Havok\hkpCapsuleShape.h">
+      <Filter>Hashmi\Havok</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashmi\Havok\XML.h">
+      <Filter>Hashmi\Havok</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashmi\includes.h">
+      <Filter>Hashmi</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

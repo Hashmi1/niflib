@@ -134,7 +134,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Static|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Hashmi;$(ProjectDir)rapidxml-1.13;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NIFLIB_STATIC_LINK;WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -851,18 +851,22 @@
     <ClCompile Include="TriStripper\tri_stripper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hashmi\Havok\hkaSkeleton.h" />
+    <ClInclude Include="Hashmi\Havok\hkobject.h" />
+    <ClInclude Include="Hashmi\Havok\hkpCapsuleShape.h" />
+    <ClInclude Include="Hashmi\Havok\XML.h" />
+    <ClInclude Include="Hashmi\includes.h" />
+    <ClInclude Include="Hashmi\Nif\config.h" />
+    <ClInclude Include="Hashmi\Nif\NifConverter.h" />
+    <ClInclude Include="Hashmi\Nif\NifFile.h" />
+    <ClInclude Include="Hashmi\Nif\SkeletonConverter.h" />
+    <ClInclude Include="Hashmi\Nif\SkeletonHKX.h" />
+    <ClInclude Include="Hashmi\Nif\SkinConverter.h" />
+    <ClInclude Include="Hashmi\Nif\util.h" />
     <ClInclude Include="include\gen\bhkCMSDBigTris.h" />
     <ClInclude Include="include\gen\BoneLOD.h" />
     <ClInclude Include="include\gen\BSSegment.h" />
     <ClInclude Include="include\gen\SkinPartitionUnknownItem1.h" />
-    <ClInclude Include="include\Hashmi\config.h" />
-    <ClInclude Include="include\Hashmi\ErrorHandler.h" />
-    <ClInclude Include="include\Hashmi\includes.h" />
-    <ClInclude Include="include\Hashmi\NifConverter.h" />
-    <ClInclude Include="include\Hashmi\NifFile.h" />
-    <ClInclude Include="include\Hashmi\SkeletonConverter.h" />
-    <ClInclude Include="include\Hashmi\SkinConverter.h" />
-    <ClInclude Include="include\Hashmi\util.h" />
     <ClInclude Include="include\obj\BSMultiBoundData.h" />
     <ClInclude Include="include\ComplexShape.h" />
     <ClInclude Include="include\dll_export.h" />
@@ -1397,6 +1401,10 @@
     <ClInclude Include="include\gen\TexSource.h" />
     <ClInclude Include="include\gen\UnionBV.h" />
     <ClInclude Include="include\gen\UnknownMatrix1.h" />
+    <ClInclude Include="rapidxml-1.13\rapidxml.hpp" />
+    <ClInclude Include="rapidxml-1.13\rapidxml_iterators.hpp" />
+    <ClInclude Include="rapidxml-1.13\rapidxml_print.hpp" />
+    <ClInclude Include="rapidxml-1.13\rapidxml_utils.hpp" />
     <ClInclude Include="TriStripper\public_types.h" />
     <ClInclude Include="TriStripper\tri_stripper.h" />
     <ClInclude Include="TriStripper\detail\cache_simulator.h" />

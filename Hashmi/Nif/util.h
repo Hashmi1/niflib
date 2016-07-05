@@ -3,6 +3,7 @@
 
 #include <vector>
 #include<string>
+# include <iostream>
 
 using namespace std;
 
@@ -52,6 +53,11 @@ public:
 		pos += 4;
 
 		return f;
+	}
+	template <typename T> static string tostr(const T& t) { 
+		ostringstream os; 
+		os<<t; 
+		return os.str(); 
 	}
 };
 

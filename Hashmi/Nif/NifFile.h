@@ -1,7 +1,7 @@
 #ifndef _NIFFILE_H_
 #define _NIFFILE_H_
 
-# include <Hashmi\includes.h>
+# include <includes.h>
 
 namespace Hashmi
 {
